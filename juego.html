@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salto del Div al Hacer Clic</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #b9faf5;
+      background-image: url("css/airo.jpg"); 
+      
+    }
+    .cuadrado {
+      width: 200px;
+      height: 200px;
+      background-color: #ff0000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s ease-in-out; 
+      border-radius: 50%; 
+    }
+    .salto {
+      transform: translate(-50%, -150%) scale(1.2); 
+    }
+  </style>
+</head>
+<body>
+  <div class="cuadrado" id="cuadrado"></div>
+
+  <script>
+    const cuadrado = document.getElementById('cuadrado'); 
+
+    function saltarCuadrado() {
+      cuadrado.classList.add('salto');
+      setTimeout(() => {
+        cuadrado.classList.remove('salto');
+      }, 300); 
+    }
+    document.body.addEventListener('click', saltarCuadrado);
+  </script>
+</body>
+</html>
